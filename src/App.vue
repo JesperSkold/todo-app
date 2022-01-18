@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<TodoMenu :todoItems="todoItems" @hideDone="hideDones" @showDone="showAgain" @deleteDone="deleteDones" @clearData="clearLocal" />
+		<TodoMenu :todoItems="todoItems" @hideDone="hideDones" @deleteDone="deleteDones" @clearData="clearLocal" />
 		<section class="intro">
 			<img src="../assets/teflon-panna.svg" alt="" />
 			<h1>TEFLON</h1>
@@ -9,7 +9,7 @@
 		<p class="length">
 			Du har <b>{{ checkTodoLength }}</b> todos kvar att göra
 		</p>
-		<TodoList :todos="todoItems" @addTodo="saveItem" @checkHandler="echo" @deleteTodo="deleteTodo" />
+		<TodoList :todos="todoItems" @addTodo="saveItem" @checkHandler="echo" @deleteTodo="deleteTodo" :hideChecks="hideChecks"/>
 		<h2 v-if="error">Please enter a valid todo</h2>
 		<h2 v-if="errorLength">Your todo can not be longer than 30 characters</h2>
 	</div>
@@ -25,6 +25,7 @@ export default {
 	},
 	data() {
 		return {
+			hideChecks: null,
 			todoItems: [],
 			showDone: true,
 			error: false,
@@ -45,8 +46,6 @@ export default {
 	methods: {
 		echo(todo) {
 			todo.done = !todo.done;
-			console.log(todo);
-			console.log(this.todoItems);
 			localStorage.setItem("localItems", JSON.stringify(this.todoItems));
 		},
 		deleteTodo(todo) {
@@ -81,11 +80,10 @@ export default {
 		newId() {
 			return Math.random().toString(16).slice(2);
 		},
-		hideDones() {
-			this.todoItems = this.todoItems.filter((x) => x.done === false);
-		},
-		showAgain() {
-			this.todoItems = JSON.parse(localStorage.getItem("localItems"));
+		hideDones(bool) {
+			this.hideChecks = bool
+			// this.todoItems = this.todoItems.filter((x) => x.done === false);
+			// console.log(this.todoItems.filter((x) => x.done === true));
 		},
 		deleteDones() {
 			this.todoItems = this.todoItems.filter((x) => x.done === false);
@@ -100,7 +98,6 @@ export default {
 	created() {
 		if (localStorage.localItems) {
 			this.todoItems = JSON.parse(localStorage.getItem("localItems"));
-			console.log(this.todoItems);
 		}
 	},
 };

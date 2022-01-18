@@ -1,7 +1,7 @@
 <template>
 	<section>
 		<ul>
-			<TodoItem v-for="item in todos" :key="item.id" :todo="item" @checkHandler="childEcho" @deleteTodo="deleteTodo" />
+			<TodoItem v-for="item in todos" :key="item.id" :todo="item" @checkHandler="childEcho" @deleteTodo="deleteTodo" :hideChecks="hideChecks"/>
 		</ul>
 		<article class="form">
 			<!-- make this form-->
@@ -30,6 +30,7 @@ import TodoItem from "./TodoItem.vue";
 export default {
 	props: {
 		todos: Array,
+    hideChecks: Boolean
 	},
 	components: { TodoItem },
 	data() {
