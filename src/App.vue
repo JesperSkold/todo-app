@@ -2,7 +2,7 @@
 	<div id="app">
 		<TodoMenu :todoItems="todoItems" @hideDone="hideDones" @showDone="showAgain" @deleteDone="deleteDones" @clearData="clearLocal"/>
 		<section></section>
-		<p>Du har {{ todoItems.length }} todos kvar att göra</p>
+		<p>Du har {{  checkTodoLength }} todos kvar att göra</p>
 		<TodoList :todos="todoItems" @addTodo="saveItem" />
 		<h2 v-if="error">Please enter a valid todo</h2>
 	</div>
@@ -18,12 +18,18 @@ export default {
 	},
 	data() {
 		return {
+			lol: false,
 			todoItems: [],
 			showDone: true,
 			error: false,
 		};
 	},
-
+		computed: {
+			checkTodoLength(){
+				console.log("yo");
+				return this.todoItems.length
+			}
+		},
 	methods: {
 		saveItem(item) {
 			if (!item || item.match(/^\s/)) {
@@ -39,7 +45,6 @@ export default {
 		},
 		hideDones(){
 			this.todoItems = this.todoItems.filter(x => x.done === false)
-			// console.log(this.todoItems.filter(x => x.done === true ))
 		},
 		showAgain() {
 			this.todoItems = JSON.parse(localStorage.getItem("localItems"));
