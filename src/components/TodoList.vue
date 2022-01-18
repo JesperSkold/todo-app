@@ -18,7 +18,7 @@ export default {
   },
   components: { TodoItem },
   data() {
-      return  {
+      return {
           inputValue: null
       }
   },

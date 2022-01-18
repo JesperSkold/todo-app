@@ -12,9 +12,9 @@ export default {
 		todo: Object,
 	},
 	mounted() {
-		// for (const key in this.todo) { 
-			if (this.todo.done === true) {
-				this.alreadyChecked = true;
+		// for (const key in this.todo) {
+		if (this.todo.done === true) {
+			this.alreadyChecked = true;
 			// }
 		}
 	},

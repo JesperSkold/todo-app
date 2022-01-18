@@ -3,7 +3,8 @@
 		<div v-if="showMenus"> 
 			<div class="content">
 				<button @click="showMenus = !showMenus">X</button>
-				<p @click="$emit('hideDone')">Hide done todos</p>
+				<p @click="$emit('hideDone');">Hide done todos</p>
+				<p @click="$emit('showDone')">Show done todos</p>
 				<p @click="$emit('deleteDone')">Delete done todos</p>
 				<p @click="$emit('clearData')">Clear all data</p>
 			</div>

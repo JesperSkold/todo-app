@@ -60,7 +60,9 @@ export default {
 				this.error = true;
 			} else {
 				this.error = false;
-				// this.todoItems = JSON.parse(localStorage.getItem("localItems"));
+				// if (localStorage.localItems) {		
+				// 	this.todoItems = JSON.parse(localStorage.getItem("localItems"));
+				// }
 				this.todoItems.push({ id: this.newId(), name: item, done: false });
 				localStorage.setItem("localItems", JSON.stringify(this.todoItems));
 			}
