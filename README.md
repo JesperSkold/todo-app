@@ -1,28 +1,24 @@
-# Teflon Todo App
+# teflon-todo
 
-## Features
-* Skapa en todo
-* Ta bort en todo
-* Se antal todos kvar
-* Persistance i localStorage
-* Visa en meny med
-  * Dölja färdiga todos
-  * Radera färdiga todos
-  * Tömma localStorage
+## Project setup
+```
+npm install
+```
 
-## Assets
-### Panna
-![](assets/teflon-panna.svg)
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-### Ikoner
-![](assets/delete.svg)
-![](assets/delete_forever.svg)
-![](assets/visibility.svg)
-![](assets/visibility_off.svg)
+### Compiles and minifies for production
+```
+npm run build
+```
 
-### Typsnitt
-[Tittilium Web](https://fonts.google.com/specimen/Titillium+Web?query=titillium)
+### Lints and fixes files
+```
+npm run lint
+```
 
-## Mockup
-![](screens/app.png)
-![](screens/app-menu.png)
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
