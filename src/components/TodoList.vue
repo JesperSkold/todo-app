@@ -1,7 +1,7 @@
 <template>
   <section>
     <ul>
-      <TodoItem v-for="item in todos" :key="item.id" :todo="item" />
+      <TodoItem v-for="item in todos" :key="item.id" :todo="item" @checkHandler="childEcho"/>
     </ul>
     <article>
         <input type="text" v-model="inputValue" @keyup.enter="$emit('addTodo', inputValue); inputValue = ''"/>
@@ -21,6 +21,11 @@ export default {
       return  {
           inputValue: null
       }
+  },
+  methods: {
+    childEcho(todo){
+      this.$emit("checkHandler", todo)
+    }
   }
 };
 </script>

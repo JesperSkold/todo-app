@@ -1,5 +1,5 @@
 <template>
-  <li><input type="checkbox" @change="todo.done = !todo.done"/>{{ todo.name }}</li> <!-- change so you dont directly manipulate the prop -->
+  <li><input type="checkbox" @change="$emit('checkHandler', todo)"/>{{ todo.name }}</li> <!-- change so you dont directly manipulate the prop todo.done = !todo.done -->
 </template>
 
 <script>

@@ -18,7 +18,7 @@
 export default {
 	data() {
 		return {
-			showMenus: this.showMenu,
+			showMenus: false,
 			showMenu: false,
 			hideOrShow: false
 		};

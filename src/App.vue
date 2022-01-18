@@ -3,7 +3,7 @@
 		<TodoMenu :todoItems="todoItems" @hideDone="hideDones" @showDone="showAgain" @deleteDone="deleteDones" @clearData="clearLocal"/>
 		<section></section>
 		<p>Du har {{  checkTodoLength }} todos kvar att göra</p>
-		<TodoList :todos="todoItems" @addTodo="saveItem" />
+		<TodoList :todos="todoItems" @addTodo="saveItem" @checkHandler="echo" />
 		<h2 v-if="error">Please enter a valid todo</h2>
 	</div>
 </template>
@@ -26,11 +26,13 @@ export default {
 	},
 		computed: {
 			checkTodoLength(){
-				console.log("yo");
 				return this.todoItems.length
 			}
 		},
 	methods: {
+		echo(todo){
+			todo.done = !todo.done
+		},
 		saveItem(item) {
 			if (!item || item.match(/^\s/)) {
 				this.error = true;
