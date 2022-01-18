@@ -1,10 +1,17 @@
 <template>
 	<div id="app">
 		<TodoMenu :todoItems="todoItems" @hideDone="hideDones" @showDone="showAgain" @deleteDone="deleteDones" @clearData="clearLocal" />
-		<section></section>
-		<p>Du har {{ checkTodoLength }} todos kvar att göra</p>
+		<section class="intro">
+			<img src="../assets/teflon-panna.svg" alt="" />
+			<h1>TEFLON</h1>
+			<p>När det inte fastnar</p>
+		</section>
+		<p class="length">
+			Du har <b>{{ checkTodoLength }}</b> todos kvar att göra
+		</p>
 		<TodoList :todos="todoItems" @addTodo="saveItem" @checkHandler="echo" @deleteTodo="deleteTodo" />
 		<h2 v-if="error">Please enter a valid todo</h2>
+		<h2 v-if="errorLength">Your todo can not be longer than 30 characters</h2>
 	</div>
 </template>
 
@@ -21,6 +28,7 @@ export default {
 			todoItems: [],
 			showDone: true,
 			error: false,
+			errorLength: false,
 		};
 	},
 	computed: {
@@ -58,11 +66,14 @@ export default {
 		saveItem(item) {
 			if (!item || item.match(/^\s/)) {
 				this.error = true;
+			} else if (item.length > 30) {
+				this.errorLength = true;
 			} else {
 				this.error = false;
-				// if (localStorage.localItems) {		
-				// 	this.todoItems = JSON.parse(localStorage.getItem("localItems"));
-				// }
+				this.errorLength = false;
+				if (localStorage.localItems) {
+					this.todoItems = JSON.parse(localStorage.getItem("localItems"));
+				}
 				this.todoItems.push({ id: this.newId(), name: item, done: false });
 				localStorage.setItem("localItems", JSON.stringify(this.todoItems));
 			}
@@ -94,10 +105,39 @@ export default {
 	},
 };
 </script>
-<style>
+<style lang="scss">
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 * {
 	margin: 0;
 	padding: 0;
 }
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+body {
+	margin: auto;
+	width: 40%;
+	height: 100vh;
+}
+.intro {
+	margin-top: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	h1 {
+		margin: 0.8rem;
+		font-size: 3rem;
+	}
+	img {
+		transform: scale(2);
+	}
+}
+.length {
+	margin: 4rem 0 2rem 0;
+	text-align: center;
+	b {
+		font-size: 1.2rem;
+	}
+}
+#app h2{
+	margin: 1rem;
+	text-align: center;
+}
 </style>

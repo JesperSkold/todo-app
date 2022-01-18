@@ -36,6 +36,7 @@ export default {
 <style lang="scss" scoped>
 .fade-layer {
 	position: fixed;
+	left: 0;
 	height: 100vh;
 	width: 100vw;
 	background: rgba(128, 128, 128, 0.486);
@@ -43,6 +44,8 @@ export default {
 span.material-icons {
 	cursor: pointer;
 	user-select: none;
+	margin:3% 0 0 95%;
+	font-size: 2rem;
 	&:hover {
 		color: grey;
 	}
