@@ -1,9 +1,16 @@
 <template>
 	<div>
-		<div v-if="showMenus"> 
+		<div v-if="showMenus">
 			<div class="content">
 				<button @click="showMenus = !showMenus">X</button>
-				<p @click="$emit('hideDone', hideChecks); hideChecks = !hideChecks">Hide or show done todos</p>
+				<p
+					@click="
+						hideChecks = !hideChecks;
+						$emit('hideDone', hideChecks);
+					"
+				>
+					Hide or show done todos
+				</p>
 				<p @click="$emit('deleteDone')">Delete done todos</p>
 				<p @click="$emit('clearData')">Clear all data</p>
 			</div>
@@ -44,7 +51,7 @@ export default {
 span.material-icons {
 	cursor: pointer;
 	user-select: none;
-	margin:3% 0 0 95%;
+	margin: 3% 0 0 95%;
 	font-size: 2rem;
 	&:hover {
 		color: grey;
