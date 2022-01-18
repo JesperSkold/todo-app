@@ -64,7 +64,7 @@ input {
 	height: 4rem;
 }
 .form {
-	margin-top: 1.5rem;
+	margin-top: 1rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

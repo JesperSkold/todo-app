@@ -2,7 +2,7 @@
 	<div id="app">
 		<TodoMenu :todoItems="todoItems" @hideDone="hideDones" @deleteDone="deleteDones" @clearData="clearLocal" />
 		<section class="intro">
-			<img src="../assets/teflon-panna.svg" alt="" />
+			<img src="./assets/teflon-panna.svg" alt="" />
 			<h1>TEFLON</h1>
 			<p>När det inte fastnar</p>
 		</section>
@@ -11,7 +11,7 @@
 		</p>
 		<TodoList :todos="todoItems" @addTodo="saveItem" @checkHandler="echo" @deleteTodo="deleteTodo" :hideChecks="hideChecks"/>
 		<h2 v-if="error">Please enter a valid todo</h2>
-		<h2 v-if="errorLength">Your todo can not be longer than 30 characters</h2>
+		<h2 v-if="errorLength">Your todo can not be longer than 50 characters</h2>
 	</div>
 </template>
 
@@ -65,7 +65,7 @@ export default {
 		saveItem(item) {
 			if (!item || item.match(/^\s/)) {
 				this.error = true;
-			} else if (item.length > 30) {
+			} else if (item.length > 50) {
 				this.errorLength = true;
 			} else {
 				this.error = false;
@@ -114,7 +114,7 @@ body {
 	height: 100vh;
 }
 .intro {
-	margin-top: 1.5rem;
+	margin-top: .5rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -134,7 +134,7 @@ body {
 	}
 }
 #app h2{
-	margin: 1rem;
+	margin: .5rem;
 	text-align: center;
 }
 </style>

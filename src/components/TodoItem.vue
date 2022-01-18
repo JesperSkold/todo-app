@@ -35,19 +35,18 @@ export default {
 		},
 	},
 };
-//console.log(this.todoItems.filter((x) => x.done === true));
 </script>
 
 <style lang="scss" scoped>
 li {
-	font-size: 1.7rem;
+	font-size: 1.3rem;
 	gap: 1rem;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	min-width: 90%;
-	min-height: 8rem;
-	background: papayawhip;
+	min-height: 7rem;
+	background: rgba(75, 75, 74, 0.404);
 	list-style: none;
 	margin: 0.4rem 0;
 	span {
