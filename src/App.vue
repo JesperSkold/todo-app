@@ -5,6 +5,8 @@
 		<p>Du har {{  checkTodoLength }} todos kvar att göra</p>
 		<TodoList :todos="todoItems" @addTodo="saveItem" @checkHandler="echo" />
 		<h2 v-if="error">Please enter a valid todo</h2>
+		<button @click="lol = !lol">hehe</button>
+		<h1 v-if="lol">test</h1>
 	</div>
 </template>
 
@@ -26,7 +28,13 @@ export default {
 	},
 		computed: {
 			checkTodoLength(){
-				return this.todoItems.length
+				let todoLength = 0;
+				for (const elem of this.todoItems) {
+					if (!elem.done) {
+						todoLength++
+					}
+				}
+					return todoLength
 			}
 		},
 	methods: {

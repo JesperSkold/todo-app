@@ -3,8 +3,7 @@
 		<div v-if="showMenus"> 
 			<div class="content">
 				<button @click="showMenus = !showMenus">X</button>
-				<p @click="$emit('hideDone'); hideOrShow = true">Hide done todos</p>
-				<p @click="$emit('showDone'); hideOrShow = false" >show done todos</p>
+				<p @click="$emit('hideDone')">Hide done todos</p>
 				<p @click="$emit('deleteDone')">Delete done todos</p>
 				<p @click="$emit('clearData')">Clear all data</p>
 			</div>
@@ -20,7 +19,6 @@ export default {
 		return {
 			showMenus: false,
 			showMenu: false,
-			hideOrShow: false
 		};
 	},
 	// methods: {
