@@ -37,11 +37,14 @@ export default {
 	methods: {
 		echo(todo) {
 			todo.done = !todo.done;
+			console.log(todo);
+			console.log(this.todoItems);
+			localStorage.setItem("localItems", JSON.stringify(this.todoItems));
 		},
 		deleteTodo(todo) {
 			for (const key in this.todoItems) {
 				if (this.todoItems[key].id === todo) {
-					this.todoItems.splice(key, 1)
+					this.todoItems.splice(key, 1);
 				}
 				localStorage.setItem("localItems", JSON.stringify(this.todoItems));
 			}
@@ -57,7 +60,7 @@ export default {
 				this.error = true;
 			} else {
 				this.error = false;
-				this.todoItems = JSON.parse(localStorage.getItem("localItems"));
+				// this.todoItems = JSON.parse(localStorage.getItem("localItems"));
 				this.todoItems.push({ id: this.newId(), name: item, done: false });
 				localStorage.setItem("localItems", JSON.stringify(this.todoItems));
 			}
@@ -84,6 +87,7 @@ export default {
 	created() {
 		if (localStorage.localItems) {
 			this.todoItems = JSON.parse(localStorage.getItem("localItems"));
+			console.log(this.todoItems);
 		}
 	},
 };

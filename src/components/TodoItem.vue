@@ -1,5 +1,8 @@
 <template>
-	<li><input type="checkbox" @change="$emit('checkHandler', todo)" />{{ todo.name }} <span class="material-icons" @click="$emit('deleteTodo', todo.id)"> delete </span></li>
+	<li>
+		<input type="checkbox" :checked="alreadyChecked" @change="$emit('checkHandler', todo)" />{{ todo.name }}
+		<span class="material-icons" @click="$emit('deleteTodo', todo.id)"> delete </span>
+	</li>
 	<!-- change so you dont directly manipulate the prop todo.done = !todo.done -->
 </template>
 
@@ -7,6 +10,18 @@
 export default {
 	props: {
 		todo: Object,
+	},
+	mounted() {
+		// for (const key in this.todo) { 
+			if (this.todo.done === true) {
+				this.alreadyChecked = true;
+			// }
+		}
+	},
+	data() {
+		return {
+			alreadyChecked: false,
+		};
 	},
 };
 </script>
