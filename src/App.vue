@@ -9,7 +9,8 @@
 		<p class="length">
 			Du har <b>{{ checkTodoLength }}</b> todos kvar att göra
 		</p>
-		<TodoList :todos="todoItems" @addTodo="saveItem" @checkHandler="echo" @deleteTodo="deleteTodo" :hideChecks="hideChecks"/>
+		<p :class="{ showChecksInfo: hideChecks, hideChecksInfo: !hideChecks }"></p>
+		<TodoList :todos="todoItems" @addTodo="saveItem" @checkHandler="echo" @deleteTodo="deleteTodo" :hideChecks="hideChecks" />
 		<h2 v-if="error">Please enter a valid todo</h2>
 		<h2 v-if="errorLength">Your todo can not be longer than 50 characters</h2>
 	</div>
@@ -81,7 +82,7 @@ export default {
 			return Math.random().toString(16).slice(2);
 		},
 		hideDones(bool) {
-			this.hideChecks = bool
+			this.hideChecks = bool;
 			// this.todoItems = this.todoItems.filter((x) => x.done === false);
 			// console.log(this.todoItems.filter((x) => x.done === true));
 		},
@@ -114,7 +115,7 @@ body {
 	height: 100vh;
 }
 .intro {
-	margin-top: .5rem;
+	margin-top: 0.5rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -127,14 +128,27 @@ body {
 	}
 }
 .length {
-	margin: 4rem 0 2rem 0;
+	margin: 4rem 0 0 0;
 	text-align: center;
 	b {
 		font-size: 1.2rem;
 	}
 }
-#app h2{
-	margin: .5rem;
+#app h2 {
+	margin: 0.5rem;
 	text-align: center;
+}
+
+.hideChecksInfo::after {
+	content: "(Showing done todos)";
+	display: block;
+	text-align: center;
+	margin: 0 0 1rem 0;
+}
+.showChecksInfo::after {
+	content: "(Hiding done todos)";
+	display: block;
+	text-align: center;
+	margin: 0 0 1rem 0;
 }
 </style>
