@@ -71,7 +71,7 @@ input {
 	align-items: center;
 }
 ul {
-	height: 35rem;
+	height: 30rem;
 	overflow-y: scroll;
 	display: flex;
 	flex-direction: column;

@@ -4,7 +4,6 @@
 			<p>{{ todo.name }}</p>
 			<span class="material-icons" @click="$emit('deleteTodo', todo.id)"> delete </span>
 		</li>
-	<!-- change so you dont directly manipulate the prop todo.done = !todo.done -->
 </template>
 
 <script>
@@ -14,10 +13,8 @@ export default {
 		hideChecks: Boolean,
 	},
 	mounted() {
-		// for (const key in this.todo) {
 		if (this.todo.done === true) {
 			this.alreadyChecked = true;
-			// }
 		}
 	},
 	data() {

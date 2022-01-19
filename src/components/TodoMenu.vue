@@ -35,14 +35,6 @@ export default {
 			showMenu: false,
 		};
 	},
-	// methods: {
-	// 	hideDone(){
-	// 		console.log(this.todoItems.filter(x => x == false))
-	// 	}
-	// },
-	// props: {
-	// 	todoItems: Array
-	// },
 };
 </script>
 
@@ -69,7 +61,7 @@ span.material-icons {
 	width: 20rem;
 	background: whitesmoke;
 	right: 0;
-	height: 100vh;
+	min-height: 100vh;
 	p {
 		user-select: none;
 		cursor: pointer;
@@ -86,7 +78,7 @@ span.material-icons {
 		}
 	}
 	p:nth-child(4){
-		margin-top: 45rem;
+		margin-top: 40rem;
 	}
 	span{
 		margin: 5% 0 0 85%;

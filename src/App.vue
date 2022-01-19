@@ -56,12 +56,6 @@ export default {
 				}
 				localStorage.setItem("localItems", JSON.stringify(this.todoItems));
 			}
-			// console.log(todo);
-			// let i = this.todoItems.map(item => item.id)
-			// console.log(Object.values(this.todoItems));
-			// console.log(Object.values(this.todoItems).indexOf(todo));
-			// this.todoItems.splice(this.todoItems.indexOf(todo), 1);
-			// this.todoItems.$remove(todo, 1)
 		},
 		saveItem(item) {
 			if (!item || item.match(/^\s/)) {
@@ -83,8 +77,6 @@ export default {
 		},
 		hideDones(bool) {
 			this.hideChecks = bool;
-			// this.todoItems = this.todoItems.filter((x) => x.done === false);
-			// console.log(this.todoItems.filter((x) => x.done === true));
 		},
 		deleteDones() {
 			this.todoItems = this.todoItems.filter((x) => x.done === false);
