@@ -12,7 +12,6 @@
 		<p :class="{ showChecksInfo: hideChecks, hideChecksInfo: !hideChecks }"></p>
 		<TodoList :todos="todoItems" @addTodo="saveItem" @checkHandler="echo" @deleteTodo="deleteTodo" :hideChecks="hideChecks" />
 		<h2 v-if="error">Please enter a valid todo</h2>
-		<h2 v-if="errorLength">Your todo can not be longer than 50 characters</h2>
 	</div>
 </template>
 
@@ -30,7 +29,6 @@ export default {
 			todoItems: [],
 			showDone: true,
 			error: false,
-			errorLength: false,
 		};
 	},
 	computed: {
@@ -58,19 +56,11 @@ export default {
 			}
 		},
 		saveItem(item) {
-			if (!item || item.match(/^\s/)) {
-				this.error = true;
-			} else if (item.length > 50) {
-				this.errorLength = true;
-			} else {
-				this.error = false;
-				this.errorLength = false;
 				if (localStorage.localItems) {
 					this.todoItems = JSON.parse(localStorage.getItem("localItems"));
 				}
 				this.todoItems.push({ id: this.newId(), name: item, done: false });
 				localStorage.setItem("localItems", JSON.stringify(this.todoItems));
-			}
 		},
 		newId() {
 			return Math.random().toString(16).slice(2);

@@ -39,21 +39,26 @@ li {
 	font-size: 1.3rem;
 	gap: 1rem;
 	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	min-width: 90%;
-	min-height: 7rem;
+	// align-items: center;
+	width: 90%;
 	background: rgba(75, 75, 74, 0.404);
 	list-style: none;
 	margin: 0.4rem 0;
 	span {
+		align-self: center;
+		cursor: pointer;
 		padding: 1rem;
 		margin-left: auto;
 	}
-
 	input {
+		align-self: center;
 		transform: scale(2);
 		margin: 1rem;
+		
+	}
+	p{
+		padding: 1rem;
+		overflow-wrap: anywhere;
 	}
 }
 </style>

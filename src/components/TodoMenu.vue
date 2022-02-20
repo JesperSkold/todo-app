@@ -46,6 +46,7 @@ export default {
 	width: 100vw;
 	background: rgba(128, 128, 128, 0.486);
 }
+
 span.material-icons {
 	cursor: pointer;
 	user-select: none;

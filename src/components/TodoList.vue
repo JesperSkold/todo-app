@@ -4,7 +4,6 @@
 			<TodoItem v-for="item in todos" :key="item.id" :todo="item" @checkHandler="childEcho" @deleteTodo="deleteTodo" :hideChecks="hideChecks"/>
 		</ul>
 		<article class="form">
-			<!-- make this form-->
 			<input
 				type="text"
 				v-model="inputValue"
@@ -51,6 +50,7 @@ export default {
 
 <style lang="scss" scoped>
 button {
+	cursor: pointer;
 	color: white;
 	background: rgba(0, 0, 0, 0.883);
 	font-size: 1.8rem;
@@ -72,7 +72,7 @@ input {
 }
 ul {
 	height: 30rem;
-	overflow-y: scroll;
+	overflow-y: auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
