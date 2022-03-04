@@ -1,7 +1,7 @@
 <template>
 	<section>
 		<ul>
-			<TodoItem v-for="item in todos" :key="item.id" :todo="item" @checkHandler="childEcho" @deleteTodo="deleteTodo" :hideChecks="hideChecks"/>
+			<TodoItem v-for="item in todos" :key="item.id" :todo="item" @checkHandler="saveCheckState" @deleteTodo="deleteTodo" :hideChecks="hideChecks" />
 		</ul>
 		<article class="form">
 			<input
@@ -29,7 +29,7 @@ import TodoItem from "./TodoItem.vue";
 export default {
 	props: {
 		todos: Array,
-    hideChecks: Boolean
+		hideChecks: Boolean,
 	},
 	components: { TodoItem },
 	data() {
@@ -38,7 +38,7 @@ export default {
 		};
 	},
 	methods: {
-		childEcho(todo) {
+		saveCheckState(todo) {
 			this.$emit("checkHandler", todo);
 		},
 		deleteTodo(todo) {
@@ -79,11 +79,11 @@ ul {
 	flex-direction: column;
 	align-items: center;
 }
-@media (max-width: 900px){
-	input{
+@media (max-width: 900px) {
+	input {
 		width: 90vw;
 	}
-	button{
+	button {
 		width: 90vw;
 	}
 }

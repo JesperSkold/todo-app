@@ -1,9 +1,9 @@
 <template>
-		<li v-show="!hideOrShowChecked">
-			<input type="checkbox" :checked="alreadyChecked" @change="$emit('checkHandler', todo)" />
-			<p>{{ todo.name }}</p>
-			<span class="material-icons" @click="$emit('deleteTodo', todo.id)"> delete </span>
-		</li>
+	<li v-show="!hideOrShowChecked">
+		<input type="checkbox" :checked="alreadyChecked" @change="$emit('checkHandler', todo)" />
+		<p>{{ todo.name }}</p>
+		<span class="material-icons" @click="$emit('deleteTodo', todo.id)"> delete </span>
+	</li>
 </template>
 
 <script>
@@ -25,7 +25,6 @@ export default {
 	computed: {
 		hideOrShowChecked() {
 			if (this.todo.done === true && this.hideChecks === true) {
-				console.log(this.todo.done);
 				return true;
 			}
 			return false;
@@ -46,16 +45,14 @@ li {
 	span {
 		align-self: center;
 		cursor: pointer;
-		// padding: 1rem;
 		margin-left: auto;
 	}
 	input {
 		align-self: center;
 		transform: scale(2);
 		margin: 1rem;
-		
 	}
-	p{
+	p {
 		padding: 1rem;
 		overflow-wrap: anywhere;
 	}

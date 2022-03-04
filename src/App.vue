@@ -1,16 +1,16 @@
 <template>
 	<div id="app">
 		<TodoMenu :todoItems="todoItems" @hideDone="hideDones" @deleteDone="deleteDones" @clearData="clearLocal" />
-		<section class="intro">
+		<section class="header">
 			<img src="./assets/teflon-panna.svg" alt="" />
 			<h1>TEFLON</h1>
-			<p>When it doesn't stick</p>
+			<p>When it doesn't stick.</p>
 		</section>
-		<p class="length">
+		<p class="todo-info">
 			You have <b>{{ checkTodoLength }}</b> todos left.
 		</p>
 		<p :class="{ showChecksInfo: hideChecks, hideChecksInfo: !hideChecks }"></p>
-		<TodoList :todos="todoItems" @addTodo="saveItem" @checkHandler="echo" @deleteTodo="deleteTodo" :hideChecks="hideChecks" />
+		<TodoList :todos="todoItems" @addTodo="saveItem" @checkHandler="saveCheckState" @deleteTodo="deleteTodo" :hideChecks="hideChecks" />
 		<h2 v-if="error">Please enter a valid todo</h2>
 	</div>
 </template>
@@ -43,7 +43,7 @@ export default {
 		},
 	},
 	methods: {
-		echo(todo) {
+		saveCheckState(todo) {
 			todo.done = !todo.done;
 			localStorage.setItem("localItems", JSON.stringify(this.todoItems));
 		},
@@ -97,7 +97,7 @@ body {
 	height: 100vh;
 	overflow-x: hidden;
 }
-.intro {
+.header {
 	margin-top: 0.5rem;
 	display: flex;
 	flex-direction: column;
@@ -110,7 +110,7 @@ body {
 		transform: scale(2);
 	}
 }
-.length {
+.todo-info {
 	margin: 4rem 0 0 0;
 	text-align: center;
 	b {

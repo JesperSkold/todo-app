@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div v-if="showMenus">
-			<div class="content">
+			<div class="side-modal">
 				<span class="material-icons" @click="showMenus = !showMenus">close</span>
 				<p
 					@click="
@@ -56,7 +56,7 @@ span.material-icons {
 		color: grey;
 	}
 }
-.content {
+.side-modal {
 	z-index: 1;
 	position: absolute;
 	width: 20vw;
@@ -94,7 +94,7 @@ span.material-icons {
 	span.material-icons{
 		margin: 1rem 0 0 90vw;
 	}
-	.content{
+	.side-modal{
 		width: 40vw;
 	}
 }
