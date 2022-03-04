@@ -39,7 +39,6 @@ li {
 	font-size: 1.3rem;
 	gap: 1rem;
 	display: flex;
-	// align-items: center;
 	width: 90%;
 	background: rgba(75, 75, 74, 0.404);
 	list-style: none;
@@ -47,7 +46,7 @@ li {
 	span {
 		align-self: center;
 		cursor: pointer;
-		padding: 1rem;
+		// padding: 1rem;
 		margin-left: auto;
 	}
 	input {

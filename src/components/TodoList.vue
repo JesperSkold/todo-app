@@ -55,12 +55,14 @@ button {
 	background: rgba(0, 0, 0, 0.883);
 	font-size: 1.8rem;
 	height: 4rem;
-	width: 25rem;
+	width: 35vw;
+	margin: 1rem;
+	padding: 1rem;
 }
 input {
 	text-align: center;
 	font-size: 2rem;
-	width: 25rem;
+	width: 35vw;
 	height: 4rem;
 }
 .form {
@@ -71,10 +73,18 @@ input {
 	align-items: center;
 }
 ul {
-	height: 30rem;
+	height: 40vh;
 	overflow-y: auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+@media (max-width: 900px){
+	input{
+		width: 90vw;
+	}
+	button{
+		width: 90vw;
+	}
 }
 </style>

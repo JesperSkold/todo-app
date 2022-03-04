@@ -59,7 +59,7 @@ span.material-icons {
 .content {
 	z-index: 1;
 	position: absolute;
-	width: 20rem;
+	width: 20vw;
 	background: whitesmoke;
 	right: 0;
 	min-height: 100vh;
@@ -79,10 +79,23 @@ span.material-icons {
 		}
 	}
 	p:nth-child(4){
-		margin-top: 40rem;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		img{
+			margin-right: 2.5rem;
+		}
 	}
 	span{
 		margin: 5% 0 0 85%;
+	}
+}
+@media (max-width: 650px){
+	span.material-icons{
+		margin: 1rem 0 0 90vw;
+	}
+	.content{
+		width: 40vw;
 	}
 }
 </style>

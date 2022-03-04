@@ -95,6 +95,7 @@ body {
 	margin: auto;
 	width: 40%;
 	height: 100vh;
+	overflow-x: hidden;
 }
 .intro {
 	margin-top: 0.5rem;
@@ -132,5 +133,10 @@ body {
 	display: block;
 	text-align: center;
 	margin: 0 0 1rem 0;
+}
+@media (max-width: 900px) {
+	body {
+		width: unset;
+	}
 }
 </style>
