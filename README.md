@@ -1,4 +1,4 @@
-# teflon-todo
+# Simple todo app
 
 ## Project setup
 ```
