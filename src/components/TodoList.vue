@@ -18,7 +18,7 @@
 					inputValue = '';
 				"
 			>
-				Lägg till todo
+				Add todo
 			</button>
 		</article>
 	</section>

@@ -4,10 +4,10 @@
 		<section class="intro">
 			<img src="./assets/teflon-panna.svg" alt="" />
 			<h1>TEFLON</h1>
-			<p>När det inte fastnar</p>
+			<p>When it doesn't stick</p>
 		</section>
 		<p class="length">
-			Du har <b>{{ checkTodoLength }}</b> todos kvar att göra
+			You have <b>{{ checkTodoLength }}</b> todos left.
 		</p>
 		<p :class="{ showChecksInfo: hideChecks, hideChecksInfo: !hideChecks }"></p>
 		<TodoList :todos="todoItems" @addTodo="saveItem" @checkHandler="echo" @deleteTodo="deleteTodo" :hideChecks="hideChecks" />
